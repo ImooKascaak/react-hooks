@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Grid } from '@material-ui/core';
 import { DataGrid, ColDef, RowParams } from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -32,13 +33,18 @@ export type User = {
 
 const columns: ColDef[] = [
   { field: 'id', headerName: '#', width: 70 },
-  { field: 'username', headerName: 'Username', width: 150 },
-  { field: 'name', headerName: 'Name', width: 200 },
-  { field: 'email', headerName: 'Email', width: 250 },
+  { field: 'username', headerName: 'Username', width: 200 },
+  { field: 'name', headerName: 'Name', width: 270 },
+  { field: 'email', headerName: 'Email', width: 330 },
 ];
 
-const useStyles = makeStyles((theme) => ({
-  userList: {
+const useStyles = makeStyles(() => ({
+  root: {
+    flexGrow: 1,
+  },
+  dataTable: {
+    width: '90vw',
+    height: '80vh',
   },
 }));
 
@@ -58,7 +64,6 @@ const Users = () => {
   }, []);
 
   function handleShowUserDetail(clickedUser: any) {
-    console.log(clickedUser.data);
     setUserDetail(clickedUser.data);
   }
 
@@ -67,16 +72,18 @@ const Users = () => {
   }
 
   return (
-    <div className={classes.userList}>
+    <div className={classes.root}>
       { userDetail === null ?
-        <div style={{ width: 700, height: 400 }}>
-          <DataGrid
-            rows={users}
-            columns={columns}
-            pageSize={5}
-            onRowClick={(param: RowParams) => handleShowUserDetail(param)}
-          />
-        </div>
+        <Grid container spacing={3}>
+          <Grid item className={classes.dataTable}>
+            <DataGrid
+              rows={users}
+              columns={columns}
+              pageSize={10}
+              onRowClick={(param: RowParams) => handleShowUserDetail(param)}
+            />
+          </Grid>
+        </Grid>
         :
         <UserDetail user={userDetail} parentCallback={handleCallback} />
       }

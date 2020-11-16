@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 const UserDetail = (props: any) => {
   const classes = useStyles();
-  const [user, setUser] = useState(props.user);
+  const [user] = useState(props.user);
 
   function onTrigger(event: any) {
     props.parentCallback(null);

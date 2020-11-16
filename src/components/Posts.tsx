@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Grid } from '@material-ui/core';
 import { DataGrid, ColDef, RowParams } from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -15,11 +16,16 @@ export type Post = {
 
 const columns: ColDef[] = [
   { field: 'id', headerName: '#', width: 70 },
-  { field: 'title', headerName: 'Title', width: 500 },
+  { field: 'title', headerName: 'Title', width: 600 },
 ];
 
-const useStyles = makeStyles((theme) => ({
-  postList: {
+const useStyles = makeStyles(() => ({
+  root: {
+    flexGrow: 1,
+  },
+  dataTable: {
+    width: '90vw',
+    height: '80vh',
   },
 }));
 
@@ -47,16 +53,18 @@ const PostList = () => {
   }
 
   return (
-    <div className={classes.postList}>
+    <div className={classes.root}>
       { postDetail === null ?
-        <div style={{ width: 700, height: 400 }}>
-          <DataGrid
-            rows={posts}
-            columns={columns}
-            pageSize={10}
-            onRowClick={(param: RowParams) => handleShowPostDetail(param)}
-          />
-        </div>
+        <Grid container spacing={3}>
+          <Grid item className={classes.dataTable}>
+            <DataGrid
+              rows={posts}
+              columns={columns}
+              pageSize={10}
+              onRowClick={(param: RowParams) => handleShowPostDetail(param)}
+            />
+          </Grid>
+        </Grid>
         :
         <PostDetail post={postDetail} parentCallback={handleCallback} />
       }
