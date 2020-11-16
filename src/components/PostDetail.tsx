@@ -96,7 +96,7 @@ const PostDetail = (props: any) => {
                 <li key={comment.id}>
                   <Paper className={classes.commentItem}>
                     <Typography className={classes.commentItemHeader}>
-                      <strong>{comment.name}</strong>, <i><a href={`mailto:${comment.email}`}>{comment.email}</a></i>
+                      <b>{comment.name}</b>, <i><a href={`mailto:${comment.email}`}>{comment.email}</a></i>
                     </Typography>
                     <Typography>{comment.body}</Typography>
                   </Paper>
