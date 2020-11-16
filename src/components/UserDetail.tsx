@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Paper } from '@material-ui/core';
+import { Button, Link, Paper } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -31,7 +31,7 @@ const UserDetail = (props: any) => {
       </Typography>
       <Paper className={classes.userCard} elevation={3}>
         <div><b>Username:</b> {user.username}</div>
-        <div><b>Email:</b> <i><a href={`mailto:${user.email}`}>{user.email}</a></i></div>
+        <div><b>Email:</b> <i><Link href={`mailto:${user.email}`}>{user.email}</Link></i></div>
         <hr />
         <div><b>Address</b></div>
         <div><b>Street:</b> {user.address['street']}</div>
@@ -44,7 +44,16 @@ const UserDetail = (props: any) => {
         <hr />
         <div><b>Contact</b></div>
         <div><b>Phone:</b> {user.phone}</div>
-        <div><b>Website:</b> <a href={`http://www.${user.website}`} target="_blank">{user.website}</a></div>
+        <div>
+          <b>Website: </b> 
+          <Link
+            href={`http://www.${user.website}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {user.website}
+          </Link>
+        </div>
         <hr />
         <div><b>Company</b></div>
         <div><b>Name:</b> {user.company['name']}</div>
