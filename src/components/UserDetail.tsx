@@ -44,7 +44,7 @@ const UserDetail = (props: any) => {
         <hr />
         <div><b>Contact</b></div>
         <div><b>Phone:</b> {user.phone}</div>
-        <div><b>Website:</b> {user.website}</div>
+        <div><b>Website:</b> <a href={`http://www.${user.website}`} target="_blank">{user.website}</a></div>
         <hr />
         <div><b>Company</b></div>
         <div><b>Name:</b> {user.company['name']}</div>
