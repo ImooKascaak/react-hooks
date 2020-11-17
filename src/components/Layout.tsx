@@ -48,31 +48,31 @@ export default function Layout() {
       <CssBaseline />
       {/* TODO: background */}
       {/* <div className={classes.background}> */}
-        <AppBar position="fixed">
-          <Toolbar className={classes.toolbar}>
-            <img className={classes.icon} src="https://www.smartsuppcdn.com/assets/img/logo/smartsupp.svg" alt="" width="80px" height="50px" />
-            <Typography variant="h4" color="inherit" noWrap>
-              {resourceType === 'posts' ? 'Posts' : 'Users'}
-            </Typography>
-            <div className={classes.grow} />
-            {resourceType !== 'posts' ?
-              <Button variant="contained" color="secondary" onClick={() => setResourceType('posts')}>
-                Posts
+      <AppBar position="fixed">
+        <Toolbar className={classes.toolbar}>
+          <img className={classes.icon} src="https://www.smartsuppcdn.com/assets/img/logo/smartsupp.svg" alt="" width="80px" height="50px" />
+          <Typography variant="h4" color="inherit" noWrap>
+            {resourceType === 'posts' ? 'Posts' : 'Users'}
+          </Typography>
+          <div className={classes.grow} />
+          {resourceType !== 'posts' ?
+            <Button variant="contained" color="secondary" onClick={() => setResourceType('posts')}>
+              Posts
             </Button>
-              :
-              <Button variant="contained" color="secondary" onClick={() => setResourceType('users')}>
-                Users
+            :
+            <Button variant="contained" color="secondary" onClick={() => setResourceType('users')}>
+              Users
             </Button>
-            }
-          </Toolbar>
-        </AppBar>
-        <main>
-          <div className={classes.content}>
-            <Container maxWidth="md">
-              {resourceType === 'posts' ? <Posts /> : <Users />}
-            </Container>
-          </div>
-        </main>
+          }
+        </Toolbar>
+      </AppBar>
+      <main>
+        <div className={classes.content}>
+          <Container maxWidth="md">
+            {resourceType === 'posts' ? <Posts /> : <Users />}
+          </Container>
+        </div>
+      </main>
       {/* </div> */}
     </React.Fragment>
   );
