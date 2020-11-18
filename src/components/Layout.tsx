@@ -50,17 +50,38 @@ export default function Layout() {
       {/* <div className={classes.background}> */}
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
-          <img className={classes.icon} src="https://www.smartsuppcdn.com/assets/img/logo/smartsupp.svg" alt="" width="80px" height="50px" />
-          <Typography variant="h4" color="inherit" noWrap>
+          <img
+            className={classes.icon}
+            src="https://www.smartsuppcdn.com/assets/img/logo/smartsupp.svg"
+            alt=""
+            width="80px"
+            height="50px"
+          />
+          <Typography
+            variant="h4"
+            color="inherit"
+            noWrap
+            data-testid="appbar-title"
+          >
             {resourceType === 'posts' ? 'Posts' : 'Users'}
           </Typography>
           <div className={classes.grow} />
           {resourceType !== 'posts' ?
-            <Button variant="contained" color="secondary" onClick={() => setResourceType('posts')}>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => setResourceType('posts')}
+              data-testid="btn-posts"
+            >
               Posts
             </Button>
             :
-            <Button variant="contained" color="secondary" onClick={() => setResourceType('users')}>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => setResourceType('users')}
+              data-testid="btn-users"
+            >
               Users
             </Button>
           }
