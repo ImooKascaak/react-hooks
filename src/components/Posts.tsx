@@ -24,6 +24,8 @@ const useStyles = makeStyles(() => ({
     flexGrow: 1,
   },
   dataTable: {
+    backgroundColor: 'white',
+    borderRadius: '5px',
     width: '90vw',
     height: '80vh',
   },

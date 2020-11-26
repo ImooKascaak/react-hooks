@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import BgImage from '../assets/background.jpg';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -27,16 +26,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '17px',
     padding: theme.spacing(13, 0, 6),
   },
-  background: {
-    backgroundImage: `url(${BgImage})`,
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    position: 'relative',
-    width: '100vh',
-    minHeight: '100%',
-  },
 }));
 
 export default function Layout() {
@@ -46,8 +35,6 @@ export default function Layout() {
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* TODO: background */}
-      {/* <div className={classes.background}> */}
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           <img
@@ -94,7 +81,6 @@ export default function Layout() {
           </Container>
         </div>
       </main>
-      {/* </div> */}
     </React.Fragment>
   );
 }
